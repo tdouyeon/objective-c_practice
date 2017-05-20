@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3FEF6FD768D5AE86FA65A99A37A6269228E60F38",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3FEF6FD768D5AE86FA65A99A37A6269228E60F38" : 9223372036854775807,
+    "08C524A9A79DCF1F964AFC4EFE10207ACFC41177" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "801A9F64-63F4-445E-9AC8-661CE870A600",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3FEF6FD768D5AE86FA65A99A37A6269228E60F38" : "Objective-C-Study\/",
+    "08C524A9A79DCF1F964AFC4EFE10207ACFC41177" : "Objective-C-Study\/NSStringTest\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Section1",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Section1.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tldrd0117\/Objective-C-Study",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08C524A9A79DCF1F964AFC4EFE10207ACFC41177"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tldrd0117\/Objective-C-Study.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3FEF6FD768D5AE86FA65A99A37A6269228E60F38"
+    }
+  ]
+}

@@ -4,15 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>NSStringTest.xcscheme</key>
+		<key>NSDictionaryTest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C7A560091ECC772300DAACD2</key>
+		<key>C7AAC2DA1ED02E4E000E2774</key>
 		<dict>
 			<key>primary</key>
 			<true/>
