@@ -14,7 +14,8 @@
 
 @end
 
-@implementation ViewController{
+@implementation ViewController
+@synthesize resultTextView, nameTextField, genreTextField, authorTextField, bookCountLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,8 +47,52 @@
     [myBook addBook:book2];
     [myBook addBook:book3];
     
+    [self updateLabel];
 }
 
+- (void)updateLabel{
+    NSString *countStr = [NSString stringWithFormat:@"%li", [myBook countBook]];
+    bookCountLabel.text = countStr;
+}
+
+- (IBAction)showAllBookAction:(id)sender{
+    resultTextView.text = [myBook showAllBook];
+}
+
+-(IBAction)addBookAction:(id)sender{
+    Book *bookTemp = [[Book alloc] init];
+    bookTemp.name = nameTextField.text;
+    bookTemp.genre = genreTextField.text;
+    bookTemp.author = authorTextField.text;
+    
+    [myBook addBook:bookTemp];
+    resultTextView.text = @"책이 추가 되었습니다.";
+    [self updateLabel];
+}
+
+-(IBAction)findBookAction:(id)sender{
+    NSString *strTemp =[myBook findBook:nameTextField.text];
+    if( strTemp != nil ){
+        resultTextView.text = strTemp;
+    }
+    else{
+        resultTextView.text = @"찾으시는 책이 없네요.";
+    }
+    [self updateLabel];
+}
+
+-(IBAction)removeBookAction:(id)sender{
+    NSString *strTemp =[myBook removeBook:nameTextField.text];
+    if( strTemp != nil ){
+        NSMutableString *str = [NSMutableString stringWithString:strTemp];
+        [str appendString:@" 책이 지워젔습니다."];
+        resultTextView.text = str;
+    }
+    else{
+        resultTextView.text = @"지우려는 책이 없네요.";
+    }
+    [self updateLabel];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
