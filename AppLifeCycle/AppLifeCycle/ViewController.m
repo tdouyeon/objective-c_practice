@@ -26,6 +26,24 @@
     NSLog(@"viewDidLoad");
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    NSLog(@"viewWillAppear");
+    // 여러번 호출
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"viewDidAppear");
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    NSLog(@"viewWillDisappear");
+    // 다른 세그로 넘어 갈 때
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    NSLog(@"viewDidDisappear");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
