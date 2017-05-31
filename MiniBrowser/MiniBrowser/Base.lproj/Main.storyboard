@@ -30,38 +30,69 @@
                                     <segment title="Apple"/>
                                     <segment title="Google"/>
                                 </segments>
+                                <connections>
+                                    <action selector="bookmarkValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="EKF-BP-Onz"/>
+                                </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXI-TB-DBg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eXI-TB-DBg">
                                 <rect key="frame" x="16" y="63" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="MCX-dd-Yjt"/>
+                                </connections>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xxl-ES-3eQ">
-                                <rect key="frame" x="0.0" y="630" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="d3r-qI-CGY"/>
-                                    <barButtonItem systemItem="rewind" id="sZz-Jg-pGF"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WLW-sl-iQA"/>
-                                    <barButtonItem systemItem="fastForward" id="YJU-BZ-UTW"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ijn-LT-fa2"/>
-                                    <barButtonItem systemItem="stop" id="47E-qz-s0a"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bNc-Xq-73g"/>
-                                    <barButtonItem systemItem="refresh" id="yrl-2X-tE7"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wKg-Y9-vzE"/>
-                                </items>
-                            </toolbar>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ah1-u0-P9y">
                                 <rect key="frame" x="0.0" y="101" width="375" height="529"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BeV-Hc-2gn"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="okq-9F-ocy">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xxl-ES-3eQ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="d3r-qI-CGY"/>
+                                    <barButtonItem systemItem="rewind" id="sZz-Jg-pGF">
+                                        <connections>
+                                            <action selector="goBack" destination="Ah1-u0-P9y" id="sF6-GW-wo3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WLW-sl-iQA"/>
+                                    <barButtonItem systemItem="fastForward" id="YJU-BZ-UTW">
+                                        <connections>
+                                            <action selector="goForward" destination="Ah1-u0-P9y" id="oUx-b7-dh5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ijn-LT-fa2"/>
+                                    <barButtonItem systemItem="stop" id="47E-qz-s0a">
+                                        <connections>
+                                            <action selector="stopLoading" destination="Ah1-u0-P9y" id="lbJ-Hx-StX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bNc-Xq-73g"/>
+                                    <barButtonItem systemItem="refresh" id="yrl-2X-tE7">
+                                        <connections>
+                                            <action selector="reload" destination="Ah1-u0-P9y" id="Ll3-QU-vci"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wKg-Y9-vzE"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="okq-9F-ocy" id="tAN-Hp-her"/>
                         <outlet property="scBookmark" destination="jRv-zd-w7o" id="in9-wf-I0P"/>
                         <outlet property="tfUrl" destination="eXI-TB-DBg" id="WVJ-fP-HFd"/>
                         <outlet property="wvMain" destination="Ah1-u0-P9y" id="jSY-uV-gFQ"/>

@@ -13,19 +13,46 @@
 @end
 
 @implementation ViewController
-@synthesize tfUrl, scBookmark, wvMain;
+@synthesize tfUrl, scBookmark, wvMain, activityIndicatorView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [wvMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.facebook.com"]]];
+    NSString * urlString = @"http://www.facebook.com";
+    [wvMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    tfUrl.text = urlString;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    NSString *urlString = textField.text;
+    
+    if (![urlString hasPrefix:@"http"]) {
+        urlString = [[NSString stringWithFormat:@"http://%@", urlString ] lowercaseString];
+    }
+    
+    [wvMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    
+    return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    [activityIndicatorView startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [activityIndicatorView stopAnimating];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)bookmarkValueChanged:(id)sender {
+    NSString *bookmarkURL = [scBookmark titleForSegmentAtIndex:scBookmark.selectedSegmentIndex];
+    NSString *urlString = [[NSString stringWithFormat:@"http://www.%@.com", bookmarkURL] lowercaseString];
+    [wvMain loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    tfUrl.text = urlString;
+}
 
 @end
