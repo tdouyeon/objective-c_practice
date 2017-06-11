@@ -28,6 +28,7 @@
 		C70863471EEAC68300CA174F /* watermelon.png in Resources */ = {isa = PBXBuildFile; fileRef = C70863391EEAC68300CA174F /* watermelon.png */; };
 		C708634A1EEAC79B00CA174F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C70863491EEAC79B00CA174F /* MasterViewController.m */; };
 		C708634D1EEAC7AA00CA174F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C708634C1EEAC7AA00CA174F /* DetailViewController.m */; };
+		C7FD99E51EEB88A5006DB0E9 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FD99E41EEB88A5006DB0E9 /* CustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		C70863491EEAC79B00CA174F /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		C708634B1EEAC7AA00CA174F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C708634C1EEAC7AA00CA174F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		C7FD99E31EEB88A5006DB0E9 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		C7FD99E41EEB88A5006DB0E9 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				C70863491EEAC79B00CA174F /* MasterViewController.m */,
 				C708634B1EEAC7AA00CA174F /* DetailViewController.h */,
 				C708634C1EEAC7AA00CA174F /* DetailViewController.m */,
+				C7FD99E31EEB88A5006DB0E9 /* CustomCell.h */,
+				C7FD99E41EEB88A5006DB0E9 /* CustomCell.m */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				C708634A1EEAC79B00CA174F /* MasterViewController.m in Sources */,
 				C70863161EEAC63D00CA174F /* main.m in Sources */,
 				C708634D1EEAC7AA00CA174F /* DetailViewController.m in Sources */,
+				C7FD99E51EEB88A5006DB0E9 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +388,7 @@
 				C708632A1EEAC63D00CA174F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

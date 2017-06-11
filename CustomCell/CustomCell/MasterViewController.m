@@ -7,6 +7,8 @@
 //
 
 #import "MasterViewController.h"
+#import "CustomCell.h"
+#import "DetailViewController.h"
 
 @interface MasterViewController ()
 
@@ -33,7 +35,7 @@
                             @"value" : @"5000"};
     
     NSDictionary *item4 = @{@"name" : @"체리",
-                            @"image" : @"cherry.jpg",
+                            @"image" : @"cherry.png",
                             @"amount" : @"1",
                             @"value" : @"2000"};
     
@@ -43,12 +45,12 @@
                             @"value" : @"1000"};
     
     NSDictionary *item6 = @{@"name" : @"키위",
-                            @"image" : @"kiwi.jpg",
+                            @"image" : @"kiwi.png",
                             @"amount" : @"2",
                             @"value" : @"15000"};
     
     NSDictionary *item7 = @{@"name" : @"레몬",
-                            @"image" : @"lemon.jpg",
+                            @"image" : @"lemon.png",
                             @"amount" : @"3",
                             @"value" : @"6000"};
     
@@ -68,7 +70,7 @@
                             @"value" : @"8000"};
     
     NSDictionary *item11 = @{@"name" : @"토마토",
-                            @"image" : @"tomato.jpg",
+                            @"image" : @"tomato.png",
                             @"amount" : @"7",
                             @"value" : @"3000"};
     
@@ -78,10 +80,17 @@
                             @"value" : @"7000"};
     
     NSDictionary *item13 = @{@"name" : @"멜론",
-                            @"image" : @"watermelon.jpg",
+                            @"image" : @"watermelon.png",
                             @"amount" : @"5",
                             @"value" : @"10000"};
     itemList = @[item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13];
+    
+    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.jpg"]];
+    backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+    backgroundImageView.frame = self.tableView.frame;
+    
+    self.tableView.backgroundView = backgroundImageView;
+    
     
 }
 
@@ -89,6 +98,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return itemList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hello" forIndexPath:indexPath ];
+    NSDictionary *dictTemp = [itemList objectAtIndex:indexPath.row];
+    
+    cell.nameLabel.text = [dictTemp objectForKey:@"name"];
+    cell.amountLabel.text = [dictTemp objectForKey:@"amount"];
+    cell.valueLabel.text = [dictTemp objectForKey:@"value"];
+    
+    cell.imgView.image = [UIImage imageNamed:[dictTemp objectForKey:@"image"]];
+    
+    return cell;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ( [[segue identifier] isEqualToString:@"showDetail"] ) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSDictionary * dic = [itemList objectAtIndex:indexPath.row];
+        [[segue destinationViewController] setDetailData: dic];
+    }
+}
+
 
 /*
 #pragma mark - Navigation
